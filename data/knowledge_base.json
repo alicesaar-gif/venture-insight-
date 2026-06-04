@@ -1,0 +1,74 @@
+{
+  "metricas": {
+    "burn_rate": {
+      "definicao": "Velocidade com que uma startup consome seu caixa operacional antes de gerar fluxo de caixa positivo, mensurada mensalmente.",
+      "formula": "Gastos Totais Mensais - Receita Operacional Mensal",
+      "contexto": "Indica a velocidade de queima de capital e ajuda a prever a necessidade de novas captações."
+    },
+    "runway": {
+      "definicao": "O intervalo de tempo estimado, expresso em meses, que a startup possui de caixa disponível antes do esgotamento total dos recursos.",
+      "formula": "Saldo de Caixa Atual / Burn Rate Mensal",
+      "contexto": "Benchmarks de mercado recomendam manter um runway entre 18 a 24 meses ao estruturar uma nova rodada de investimento."
+    },
+    "cac": {
+      "definicao": "Custo de Aquisição de Cliente. O valor médio investido em esforços diretos para conquistar um único novo cliente.",
+      "formula": "Soma dos Investimentos em Marketing e Vendas / Número de Novos Clientes no Período",
+      "contexto": "Deve ser analisado de forma integrada com o Lifetime Value (LTV) para avaliar o retorno do investimento em escala."
+    },
+    "ltv": {
+      "definicao": "Lifetime Value. A receita bruta ou margem de contribuição total estimada que um cliente gera para o negócio ao longo de seu ciclo de relacionamento.",
+      "formula": "Ticket Médio x Recorrência de Compra x Tempo Médio de Retenção (Lifespan)",
+      "contexto": "Métrica fundamental para validar o valor de longo prazo gerado pela base de clientes adquirida."
+    },
+    "ltv_cac": {
+      "definicao": "Relação de eficiência entre o valor financeiro entregue pelo cliente e o custo despendido para sua aquisição.",
+      "formula": "Lifetime Value / Custo de Aquisição de Cliente",
+      "contexto": "Para modelos de negócios escaláveis como SaaS (Software as a Service), o benchmark mínimo de mercado para eficiência operacional é uma proporção de 3:1 (LTV/CAC igual ou maior que 3x)."
+    }
+  },
+  "valuation_e_societario": {
+    "pre_money_valuation": {
+      "definicao": "O valor patrimonial atribuído à empresa antes do recebimento do aporte financeiro da rodada de investimentos atual.",
+      "formula": "Post-Money Valuation - Valor do Aporte"
+    },
+    "post_money_valuation": {
+      "definicao": "O valor patrimonial da empresa imediatamente após a liquidação financeira e formalização do aporte da rodada.",
+      "formula": "Pre-Money Valuation + Valor do Aporte"
+    },
+    "diluicao": {
+      "definicao": "Redução proporcional do percentual de participação societária dos acionistas atuais decorrente da emissão de novas ações para a entrada de novos investidores.",
+      "formula": "Percentual de Diluição = Valor do Aporte / Post-Money Valuation"
+    },
+    "cap_table": {
+      "definicao": "Capitalization Table. Tabela descritiva que detalha a estrutura de propriedade acionária da empresa, listando sócios, investidores, classes de ações, opções de compra (ESOP) e seus respectivos percentuais de participação."
+    }
+  },
+  "instrumentos_e_processos": {
+    "SAFE": {
+      "definicao": "Simple Agreement for Future Equity. Instrumento financeiro em que o investidor aporta capital imediato na empresa em troca do direito de converter esse valor em participação acionária em um evento de liquidez ou rodada de valuation futura qualificada."
+    },
+    "term_sheet": {
+      "definicao": "Documento preliminar, geralmente não vinculante, que estabelece as principais condições, direitos, deveres e valuation sob os quais um investidor pretende realizar um aporte financeiro na empresa."
+    },
+    "due_diligence": {
+      "definicao": "Processo de auditoria minuciosa de natureza jurídica, contábil, fiscal e técnica realizada por potenciais compradores ou investidores para mitigar riscos e identificar passivos ocultos antes da assinatura dos contratos definitivos."
+    },
+    "governança": {
+      "definicao": "Sistema de mecanismos, práticas e processos pelos quais as empresas são dirigidas e controladas, focado em mitigar conflitos de interesse e assegurar a transparência para com os acionistas e conselhos."
+    }
+  },
+  "ecossistema": {
+    "venture_capital": {
+      "definicao": "Modalidade de investimento em participações focada em empresas de base tecnológica (startups) com alto potencial de crescimento, alto risco e escalabilidade global."
+    },
+    "private_equity": {
+      "definicao": "Aporte de capital direcionado a empresas maduras e já consolidadas no mercado, operando geralmente por meio de aquisições de controle para otimização operacional e governança antes do desinvestimento."
+    },
+    "corporate_venture_capital": {
+      "definicao": "CVC. Estrutura em que grandes corporações utilizam fundos próprios para investir minoritariamente em startups de interesse estratégico ou tecnológico para alinhar inovação ao seu core business."
+    },
+    "m_and_a": {
+      "definicao": "Mergers and Acquisitions. Transações de finanças corporativas que envolvem a consolidação de companhias por meio de processos de fusão (combinação de duas entidades em uma nova) ou aquisição (compra do controle acionário)."
+    }
+  }
+}
