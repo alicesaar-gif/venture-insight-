@@ -1,74 +1,52 @@
-{
-  "metricas": {
-    "burn_rate": {
-      "definicao": "Velocidade com que uma startup consome seu caixa operacional antes de gerar fluxo de caixa positivo, mensurada mensalmente.",
-      "formula": "Gastos Totais Mensais - Receita Operacional Mensal",
-      "contexto": "Indica a velocidade de queima de capital e ajuda a prever a necessidade de novas captações."
+[
+    {
+        "id": "be34d522-3e46-4cba-88e2-705678256941",
+        "nome": "Startup Battlefield is returning to Australia — here’s what happened the last time we came to Sydney",
+        "insight": "On August 19, Startup Battlefield is returning to Sydney in partnership with Stripe, one of the world's most iconic technology companies. We're taking over Stripe Tour Sydney for a night that the Australian startup ecosystem won't forget."
     },
-    "runway": {
-      "definicao": "O intervalo de tempo estimado, expresso em meses, que a startup possui de caixa disponível antes do esgotamento total dos recursos.",
-      "formula": "Saldo de Caixa Atual / Burn Rate Mensal",
-      "contexto": "Benchmarks de mercado recomendam manter um runway entre 18 a 24 meses ao estruturar uma nova rodada de investimento."
+    {
+        "id": "6674da38-b058-4ed5-a04d-a2ab183ce49c",
+        "nome": "Helion, the Sam Altman-backed fusion startup, raises $465M to build a power plant for Microsoft",
+        "insight": "Fusion startup Helion is racing to complete a power plant for Microsoft by 2028. A fresh infusion of cash should help with that."
     },
-    "cac": {
-      "definicao": "Custo de Aquisição de Cliente. O valor médio investido em esforços diretos para conquistar um único novo cliente.",
-      "formula": "Soma dos Investimentos em Marketing e Vendas / Número de Novos Clientes no Período",
-      "contexto": "Deve ser analisado de forma integrada com o Lifetime Value (LTV) para avaliar o retorno do investimento em escala."
+    {
+        "id": "fd6afde8-7909-4f5e-a17f-47a03d27dd64",
+        "nome": "Is Silicon Valley ready to put robots in people’s homes? Hello Robot is.",
+        "insight": "The California startup released the fourth-generation of its home assistance robot, Stretch."
     },
-    "ltv": {
-      "definicao": "Lifetime Value. A receita bruta ou margem de contribuição total estimada que um cliente gera para o negócio ao longo de seu ciclo de relacionamento.",
-      "formula": "Ticket Médio x Recorrência de Compra x Tempo Médio de Retenção (Lifespan)",
-      "contexto": "Métrica fundamental para validar o valor de longo prazo gerado pela base de clientes adquirida."
+    {
+        "id": "cd7c9763-538f-4995-aa08-bd479d6b8be8",
+        "nome": "Quick-commerce FirstClub doubles valuation to $255M in 9 months",
+        "insight": "The Bengaluru startup has crossed 1 million orders and reached a $50 million annualized GMV run rate within a year of launch."
     },
-    "ltv_cac": {
-      "definicao": "Relação de eficiência entre o valor financeiro entregue pelo cliente e o custo despendido para sua aquisição.",
-      "formula": "Lifetime Value / Custo de Aquisição de Cliente",
-      "contexto": "Para modelos de negócios escaláveis como SaaS (Software as a Service), o benchmark mínimo de mercado para eficiência operacional é uma proporção de 3:1 (LTV/CAC igual ou maior que 3x)."
+    {
+        "id": "5e845811-7320-453a-8044-45686216744e",
+        "nome": "Lovable signs multiyear deal with Google Cloud to up usage 5x, source says",
+        "insight": "Lovable and Google signed an expanded multiyear deal that involves a 5x expansion of Lovable's footprint on Google Cloud, and expanded access to Anthropic Claude."
+    },
+    {
+        "id": "da2a525c-01c7-46dc-b159-f07fe76fc998",
+        "nome": "These two founders left Goldman and Meta to build voice AI for markets everyone else overlooked",
+        "insight": "The startup's own stack for Africa and Middle East is now handling more than 17,000 calls per day."
+    },
+    {
+        "id": "96e3b2a3-0ed0-435d-8677-5e2ccf907498",
+        "nome": "Coralogix raises $200M on bet that someone needs to watch the AI agents",
+        "insight": "Coralogix is among a growing number of infrastructure firms betting that as AI systems move into production, demand will rise for tools that can monitor their behavior, troubleshoot failures, and provide the operational data needed to keep them running reliably."
+    },
+    {
+        "id": "6f5b7953-c07a-4a7c-b485-d08a6426eced",
+        "nome": "Cyera eyes $12B valuation at 80x ARR multiple despite operating losses",
+        "insight": "The cybersecurity company is nearing a $300 million round led by Evolution Equity Partners."
+    },
+    {
+        "id": "f0402efd-3e4b-49e4-ba71-341d75f9ef03",
+        "nome": "A startup, Everand, is now bundling e-books, audiobooks, and book clubs in challenge to Amazon",
+        "insight": "A new reading subscription from Everand offers access to both e-books and audiobooks, and Fable's book club community."
+    },
+    {
+        "id": "1ba1283b-4f8a-41d9-8c59-daae52c5a550",
+        "nome": "Defense tech, AI, and fundraising take center stage at StrictlyVC Los Angeles on June 18",
+        "insight": "On Thursday, June 18, at The Aerospace Corporation Campus, investors, founders, and tech leaders will gather for an evening of conversation exploring some of the most consequential shifts taking place across venture capital, defense technology, artificial intelligence, and advanced industry. Secure your spot today."
     }
-  },
-  "valuation_e_societario": {
-    "pre_money_valuation": {
-      "definicao": "O valor patrimonial atribuído à empresa antes do recebimento do aporte financeiro da rodada de investimentos atual.",
-      "formula": "Post-Money Valuation - Valor do Aporte"
-    },
-    "post_money_valuation": {
-      "definicao": "O valor patrimonial da empresa imediatamente após a liquidação financeira e formalização do aporte da rodada.",
-      "formula": "Pre-Money Valuation + Valor do Aporte"
-    },
-    "diluicao": {
-      "definicao": "Redução proporcional do percentual de participação societária dos acionistas atuais decorrente da emissão de novas ações para a entrada de novos investidores.",
-      "formula": "Percentual de Diluição = Valor do Aporte / Post-Money Valuation"
-    },
-    "cap_table": {
-      "definicao": "Capitalization Table. Tabela descritiva que detalha a estrutura de propriedade acionária da empresa, listando sócios, investidores, classes de ações, opções de compra (ESOP) e seus respectivos percentuais de participação."
-    }
-  },
-  "instrumentos_e_processos": {
-    "SAFE": {
-      "definicao": "Simple Agreement for Future Equity. Instrumento financeiro em que o investidor aporta capital imediato na empresa em troca do direito de converter esse valor em participação acionária em um evento de liquidez ou rodada de valuation futura qualificada."
-    },
-    "term_sheet": {
-      "definicao": "Documento preliminar, geralmente não vinculante, que estabelece as principais condições, direitos, deveres e valuation sob os quais um investidor pretende realizar um aporte financeiro na empresa."
-    },
-    "due_diligence": {
-      "definicao": "Processo de auditoria minuciosa de natureza jurídica, contábil, fiscal e técnica realizada por potenciais compradores ou investidores para mitigar riscos e identificar passivos ocultos antes da assinatura dos contratos definitivos."
-    },
-    "governança": {
-      "definicao": "Sistema de mecanismos, práticas e processos pelos quais as empresas são dirigidas e controladas, focado em mitigar conflitos de interesse e assegurar a transparência para com os acionistas e conselhos."
-    }
-  },
-  "ecossistema": {
-    "venture_capital": {
-      "definicao": "Modalidade de investimento em participações focada em empresas de base tecnológica (startups) com alto potencial de crescimento, alto risco e escalabilidade global."
-    },
-    "private_equity": {
-      "definicao": "Aporte de capital direcionado a empresas maduras e já consolidadas no mercado, operando geralmente por meio de aquisições de controle para otimização operacional e governança antes do desinvestimento."
-    },
-    "corporate_venture_capital": {
-      "definicao": "CVC. Estrutura em que grandes corporações utilizam fundos próprios para investir minoritariamente em startups de interesse estratégico ou tecnológico para alinhar inovação ao seu core business."
-    },
-    "m_and_a": {
-      "definicao": "Mergers and Acquisitions. Transações de finanças corporativas que envolvem a consolidação de companhias por meio de processos de fusão (combinação de duas entidades em uma nova) ou aquisição (compra do controle acionário)."
-    }
-  }
-}
+]
