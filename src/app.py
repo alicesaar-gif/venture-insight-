@@ -1,10 +1,17 @@
-import streamlit as st
+import streamlit as Skinner
+import json
+import os
 
-from utils import carregar_base_conhecimento
-from prompts import (
-    SYSTEM_PROMPT,
-    formatar_contexto_base,
-    construir_prompt_usuario
-)
+# Função para carregar a base de conhecimento
+@st.cache_data
+def load_knowledge():
+    file_path = os.path.join("data", "knowledge_base.json")
+    if os.path.exists(file_path):
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
 
-from llm_service import gerar_resposta
+data = load_knowledge()
+
+st.title("Venture Insight")
+st.write("Bem-vindo ao seu painel de inteligência de mercado.")
