@@ -4,7 +4,6 @@ import os
 import uuid
 from scraper import capturar_noticias_vc
 
-# Configuração da Página
 st.set_page_config(page_title="Venture Insight - VC & M&A Copilot", layout="wide")
 
 JSON_PATH = os.path.join("data", "knowledge_base.json")
@@ -21,7 +20,6 @@ def load_knowledge():
 
 dados_salvos = load_knowledge()
 
-# Painel de Administração e Gestão de Ingestão Lateral
 with st.sidebar:
     st.header("Controle do Sistema")
     st.write("Gerenciamento automatizado de conexões e pipelines de dados.")
@@ -34,7 +32,6 @@ with st.sidebar:
 
 col_painel, col_assistente = st.columns([0.55, 0.45], gap="large")
 
-# Interface de Auditoria da Matriz Local (Coluna Esquerda)
 with col_painel:
     st.title("Venture Insight - Matriz de Dados")
     st.write("Camada de persistência, auditoria de integridade e inserção de teses.")
@@ -106,7 +103,6 @@ with col_painel:
     else:
         st.info("Base de dados local sem registros. Acione o botão de sincronização na barra lateral.")
 
-# Copiloto Analítico Conversacional (Coluna Direita)
 with col_assistente:
     st.title("Venture Insight - Copilot")
     st.write("Interface de inteligência conversacional orientada à análise de mercado.")
@@ -126,7 +122,6 @@ with col_assistente:
         resposta_ia = ""
         query_lower = user_query.lower()
         
-        # Mapeamento de parâmetros regionais
         filtro_regiao = None
         if "brasil" in query_lower or "nacional" in query_lower:
             filtro_regiao = "Brasil"
@@ -135,7 +130,6 @@ with col_assistente:
             
         foco_rio = "rio" in query_lower or "rj" in query_lower or "carioca" in query_lower
 
-        # 1. TRATAMENTO A: Correspondência por Entidade Nominada
         for item in dados_salvos:
             if isinstance(item, dict):
                 nome_empresa = item.get('nome', '').lower()
@@ -143,7 +137,6 @@ with col_assistente:
                     resposta_ia = f"Análise de Registro Local [{item.get('regiao')}]: Para o identificador **{item.get('nome')}**, a base registra:\n\n{item.get('insight')} (Fonte: {item.get('fonte', 'Mapeada')})"
                     break
         
-        # 2. TRATAMENTO B: Processamento de Consultas Amplas e Direcionamento Regional (Protegido contra vazamento)
         if not resposta_ia and any(p in query_lower for p in ["melhor", "investir", "recomendação", "destaque", "oportunidade", "notícias", "rio", "rj", "faperj"]):
             insights_importantes = []
             
@@ -156,24 +149,19 @@ with col_assistente:
                     regiao_item = item.get('regiao', 'Global')
                     texto_completo = (item.get('nome', '') + " " + item.get('insight', '')).lower()
                     
-                    # Filtro estrito para o Rio de Janeiro
                     if foco_rio:
                         if "rio" in texto_completo or "rj" in texto_completo or "carioca" in texto_completo or regiao_item == "Rio de Janeiro":
                             insights_importantes.append(item)
-                    # Filtro para demais regiões demarcadas
                     elif filtro_regiao and regiao_item == filtro_regiao:
                         if any(termo in texto_completo for termo in termos_chave):
                             insights_importantes.append(item)
-                    # Filtro global amplo
                     elif not filtro_regiao:
                         if any(termo in texto_completo for termo in termos_chave):
                             insights_importantes.append(item)
             
-            # Correção da contingência: impede que consultas do Rio capturem dados globais aleatórios
             if not insights_importantes and dados_salvos and not foco_rio:
                 insights_importantes = [d for d in dados_salvos if not filtro_regiao or d.get('regiao') == filtro_regiao]
             
-            # Geração de Relatório de Ativos se houver dados específicos correspondentes
             if insights_importantes:
                 loc_titulo = " no ecossistema do Rio de Janeiro" if foco_rio else (f" no mercado {filtro_regiao}" if filtro_regiao else " consolidados")
                 resposta_ia = f"Análise de Mercado Venture Insight: Com base nas movimentações estruturadas identificadas{loc_titulo}, destacam-se os seguintes ativos e relatórios:\n\n"
@@ -183,17 +171,15 @@ with col_assistente:
                     resposta_ia += f"{i}. **{item.get('nome')}** (Origem: {regiao_exibida} | Fonte: {item.get('fonte', 'Mapeada')})\n   Análise Técnica: {item.get('insight')}\n\n"
                 resposta_ia += "Recomendação Analítica: O direcionamento de capital ou fomento para estas verticais sinaliza tendências de consolidação regulatória ou mercadológica de curto prazo."
             
-            # Fallback Estrutural Teórico Exclusivo para o Rio de Janeiro (Ativado quando não há fatos indexados no feed do dia)
             elif foco_rio:
                 resposta_ia = (
                     "Mapeamento Macroeconômico de Ecossistema - Rio de Janeiro:\n\n"
-                    "Não há eventos de captação privada direta listados nas últimas 24 horas para o Rio de Janeiro, contudo, os fundamentos estruturais da região indicam:\n\n"
+                    "Não há eventos de captação privada direta listados nas últimas 24 hours para o Rio de Janeiro, contudo, os fundamentos estruturais da região indicam:\n\n"
                     "1. Polos Tecnológicos Dinâmicos: O desenvolvimento de novos ativos está concentrado em distritos de inovação como o Porto Maravalley (integração corporativa e acadêmica via IMPA Tech) e o Parque Tecnológico da UFRJ, voltados à redução de fricção operacional e custos imobiliários transacionais.\n"
                     "2. Matriz de Fomento Não Dilutivo: A atuação da FAPERJ, por meio de subvenções como o edital HUB RJ STARTUP e programas de fomento à fixação de pesquisadores (Doutor Empreendedor), funciona como uma camada de pré-validação técnica de ativos altamente atraentes para fundos privados subsequentes.\n"
                     "3. Setores de Alta Densidade: Liderança histórica em Energytechs, Logtechs industriais e soluções B2B estruturadas para grandes corporações sediadas no estado."
                 )
         
-        # 3. CAMADA DE BLINDAGEM: Governança de Escopo e Guardrails
         if not resposta_ia:
             resposta_ia = "Instrução do Sistema: Os parâmetros solicitados encontram-se fora da base de dados ativa ou violam o escopo restrito do assistente. A plataforma não emite conselhos especulativos sobre ações de varejo, trading de curto prazo ou finanças pessoais. Atualize a captura de dados de Venture Capital e tente novamente."
             
